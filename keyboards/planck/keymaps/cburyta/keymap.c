@@ -22,7 +22,7 @@ enum planck_layers {
   _QWERTY,
   _LOWER,
   _RAISE,
-  _PLOVER,
+  _NAV,
   _ADJUST
 };
 
@@ -50,8 +50,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_QWERTY] = LAYOUT_planck_grid(
     KC_TAB,                 KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_QUOTE,
     MT(KC_RCTL, KC_ESC),    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, MT(KC_RCTL, KC_ENT),
-    MT(KC_LSFT, KC_LPRN),   KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, MT(KC_RSFT, KC_RPRN),
-    MT(BACKLIT, KC_LBRC),   KC_HYPR, KC_LALT, KC_LGUI, LOWER,   KC_BSPC, KC_SPC,  RAISE,   KC_RGUI, KC_RALT, KC_HYPR, MT(BACKLIT, KC_RBRC)
+    KC_LSPO,   KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RAPC,
+    MT(BACKLIT, KC_LBRC),   KC_HYPR, KC_LALT, KC_LGUI, LOWER, KC_BSPC, LT(_NAV, KC_SPC),  RAISE,   KC_RGUI, KC_RALT, KC_HYPR, MT(BACKLIT, KC_RBRC)
 ),
 
 /* Lower
@@ -88,6 +88,24 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_DEL,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_MINS, KC_EQL,  KC_LBRC, KC_RBRC, KC_BSLS,
     _______, KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_NUHS, KC_NUBS, KC_PGUP, KC_PGDN, _______,
     _______, _______, _______, _______, _______, _______, _______, _______, KC_MNXT, KC_VOLD, KC_VOLU, KC_MPLY
+),
+
+/* Nav
+ * ,-----------------------------------------------------------------------------------.
+ * |      |      |      |      |      |      |      |      |      |      |      |      |
+ * |------+------+------+------+------+------+------+------+------+------+------+------|
+ * |      |      |      |      |      |      |   L  |   D  |   U  |  R   |      |      |
+ * |------+------+------+------+------+------+------+------+------+------+------+------|
+ * |      |      |      |      |      |      |Alt+L |     |      |      |      |      |
+ * |------+------+------+------+------+------+------+------+------+------+------+------|
+ * |      |      |      |      |      |      |      |      |      |      |      |      |
+ * `-----------------------------------------------------------------------------------'
+ */
+[_NAV] = LAYOUT_planck_grid(
+    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+    _______, _______, KC_HOME,       KC_PGUP,     KC_PGDN,       KC_END,        KC_LEFT,       KC_DOWN,       KC_UP,       KC_RGHT,       _______, _______,
+    _______, _______, LGUI(KC_LEFT), LGUI(KC_UP), LGUI(KC_DOWN), LGUI(KC_RGHT), LALT(KC_LEFT), LALT(KC_DOWN), LALT(KC_UP), LALT(KC_RGHT), _______, _______,
+    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
 ),
 
 /* Adjust (Lower + Raise)
