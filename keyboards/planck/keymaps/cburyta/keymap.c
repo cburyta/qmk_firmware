@@ -67,14 +67,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |      |  -   |  =   |  `   |  \   |  :   |   -  |   —  |   ,  |   .  |   /  |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |      |      |      |******|      |      |      | Next | Vol- | Vol+ | Play |
+ * |      |      |      |      |******|      |   -  |      | Next | Vol- | Vol+ | Play |
  * `-----------------------------------------------------------------------------------'
  */
 [_LOWER] = LAYOUT_planck_grid(
     KC_TILD, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,    KC_CIRC,  KC_AMPR,  KC_ASTR,  KC_LPRN,  KC_RPRN,  KC_HASH,
     _______, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,     KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     _______,
     _______, KC_MINS, KC_EQL,  KC_GRV,  KC_BSLS, KC_COLN,  KC_MINS,  KC_MDSH,  KC_COMM,  KC_DOT,   KC_SLSH,  _______,
-    _______, _______, _______, _______, _______, _______,  _______,  _______,  KC_MNXT,  KC_VOLD,  KC_VOLU,  KC_MPLY
+    _______, _______, _______, _______, _______, _______,  KC_MINS,  _______,  KC_MNXT,  KC_VOLD,  KC_VOLU,  KC_MPLY
 ),
 
 /* Raise
